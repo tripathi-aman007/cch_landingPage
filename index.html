@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeCrush Hub</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+      /* Gradient Background */
+      body {
+        background: linear-gradient(135deg, #d5cfc7, #e3cdea, #f2e5d5);
+        margin: 0;
+        font-family: "Arial", sans-serif;
+      }
+
+      /* Header Section */
+      .header {
+        text-align: center;
+        padding: 80px 20px;
+        color: #333;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid #ddd;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .header h1 {
+        font-size: 3.5em;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: #222;
+        animation: fadeIn 1s ease-out;
+      }
+
+      .header p {
+        font-size: 1.3em;
+        color: #555;
+        animation: fadeIn 1.5s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Free Consultation Section */
+      .consultation {
+        background: #d666fe;
+        color: #fff;
+        text-align: center;
+        padding: 60px 20px;
+        border-radius: 10px;
+        margin: 30px 20px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        animation: slideIn 1s ease-out;
+      }
+
+      .consultation h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        animation: bounceIn 1s ease-out;
+      }
+
+      .consultation p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+      }
+
+      .consultation .btn {
+        background-color: #fff;
+        color: #d666fe;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-size: 1.2em;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .consultation .btn:hover {
+        background-color: #f3ede6;
+        color: #333;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateY(-30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes bounceIn {
+        0% {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      /* Services Section */
+      .services {
+        padding: 60px 20px;
+      }
+
+      .services h2 {
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 40px;
+        color: #333;
+        animation: fadeIn 2s ease-out;
+      }
+
+      .service-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        border-radius: 15px;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background: #fff;
+        animation: fadeInUp 1s ease-out;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card i {
+        font-size: 3em;
+        color: #d666fe;
+        margin-bottom: 20px;
+        transition: transform 0.6s ease;
+      }
+
+      .service-card h5 {
+        font-size: 1.4em;
+        margin-bottom: 10px;
+      }
+
+      .service-card p {
+        font-size: 1em;
+        color: #666;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-card:hover i {
+        animation: rotate360 0.6s ease forwards;
+      }
+
+      @keyframes rotate360 {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Footer Section */
+      .footer {
+        background-color: #333;
+        color: #fff;
+        padding: 30px 20px;
+        text-align: center;
+        border-top: 1px solid #444;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .footer-details {
+        margin: 10px 0;
+        font-size: 1.1em;
+      }
+
+      .footer-details p {
+        margin: 5px 0;
+      }
+
+      .footer-details i {
+        margin-right: 8px;
+      }
+
+      .footer-social {
+        margin-top: 20px;
+      }
+
+      .social-icon {
+        color: #fff;
+        font-size: 1.5em;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+      }
+
+      .social-icon:hover {
+        color: #d666fe;
+      }
+
+      /* Modal Styles */
+      .modal-backdrop.show {
+        backdrop-filter: blur(5px);
+        background-color: rgba(72, 8, 235, 0.1); /* Add a slight darkening */
+      }
+
+      .modal-content {
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(231, 39, 39, 0.2);
+      }
+
+      .modal-header {
+        border-bottom: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Free Consultation Section -->
+    <section class="consultation">
+      <h2>Get a Free Consultation</h2>
+      <p>
+        Discuss your project with our experts and see how we can help you
+        achieve your goals.
+      </p>
+      <!-- Button to trigger modal -->
+      <button
+        type="button"
+        class="btn"
+        data-toggle="modal"
+        data-target="#consultationModal"
+      >
+        Book Consultation
+      </button>
+    </section>
+
+    <!-- Header Section -->
+    <header class="header">
+      <h1>Welcome to CodeCrush Hub</h1>
+      <p>
+        Your one-stop solution for web and app development, design, and
+        marketing.
+        <br /><br />
+        At CodeCrush Hub, we transform your ideas into reality with cutting-edge
+        technology and creative excellence. Our expert team delivers innovative
+        solutions tailored to your unique needs, ensuring your brand stands out
+        in the digital world.
+        <br /><br />
+        Whether you're looking to build a stunning website, a dynamic mobile
+        app, or boost your online presence, we've got you covered.
+      </p>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services container">
+      <h2>Our Services</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card service-card">
+            <i class="fas fa-laptop-code"></i>
+            <h5>Web Development</h5>
+            <p>Building responsive and scalable websites.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card service-card">
+            <i class="fas fa-mobile-alt"></i>
+            <h5>App Development</h5>
+            <p>Creating intuitive and functional mobile applications.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card service-card">
+            <i class="fas fa-paint-brush"></i>
+            <h5>Figma Design</h5>
+            <p>Designing user-friendly and visually appealing interfaces.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card service-card">
+            <i class="fas fa-chart-line"></i>
+            <h5>Digital Marketing</h5>
+            <p>Enhancing your online presence and reach.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card service-card">
+            <i class="fas fa-share-alt"></i>
+            <h5>Social Media Marketing</h5>
+            <p>
+              Engaging your audience through effective social media strategies.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal for Query Form -->
+    <div
+      class="modal fade"
+      id="consultationModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="consultationModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="consultationModalLabel">
+              Have a Question?
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="phone">Whatsapp Number</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phone"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="city">City</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="city"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  rows="4"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <!-- Footer Section -->
+    <footer class="footer">
+      <p>&copy; 2024 CodeCrush Hub. All Rights Reserved.</p>
+      <div class="footer-details">
+        <p><i class="fas fa-phone"></i> +1 (234) 567-8901</p>
+        <p><i class="fas fa-envelope"></i> contact@codecrushhub.com</p>
+      </div>
+      <div class="footer-social">
+        <a
+          href="https://www.linkedin.com/company/102070984/admin/dashboard/"
+          target="_blank"
+          class="social-icon"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/codecrushhub24/"
+          target="_blank"
+          class="social-icon"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Bootstrap and JS Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
