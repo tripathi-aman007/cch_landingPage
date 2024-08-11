@@ -243,27 +243,176 @@
       .modal-header {
         border-bottom: none;
       }
+
+      /* Testimonials Section */
+      .testimonials {
+        padding: 60px 20px;
+        margin-bottom: 140px;
+      }
+
+      .testimonials h2 {
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 40px;
+        color: #333;
+      }
+
+      .testimonial-card {
+        perspective: 1000px;
+      }
+
+      .testimonial-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.6s, box-shadow 0.3s ease, transform 0.3s ease;
+      }
+
+      .testimonial-card:hover .testimonial-card-inner {
+        transform: rotateY(180deg);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .testimonial-card-front,
+      .testimonial-card-back {
+        position: absolute;
+        width: 100%;
+        height: max-content;
+        backface-visibility: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(33, 9, 220, 0.1);
+        background: #fff;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .testimonial-card-front {
+        z-index: 2;
+        transform: rotateY(0deg);
+      }
+
+      .testimonial-card-back {
+        transform: rotateY(180deg);
+      }
+
+      .testimonial-card-front h5 {
+        font-size: 1.4em;
+        margin-bottom: 10px;
+      }
+
+      .testimonial-card-front p {
+        font-size: 1em;
+        color: #666;
+      }
+
+      .testimonial-card-back p {
+        font-size: 1.2em;
+        color: #333;
+      }
+
+      /* Why Choose Us Section */
+      .why-choose-us {
+        padding: 60px 20px;
+      }
+
+      .why-choose-us h2 {
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 40px;
+        color: #333;
+      }
+
+      .why-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 10px;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .why-card i {
+        font-size: 3em;
+        color: #eeaa56;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+      }
+
+      .why-card h5 {
+        font-size: 1.4em;
+        margin-bottom: 10px;
+      }
+
+      .why-card p {
+        font-size: 1em;
+        color: #666;
+      }
+
+      .why-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .why-card:hover i {
+        transform: scale(1.1);
+      }
+
+      /* Counter Section */
+      .counter-section {
+        padding: 60px 20px;
+      }
+
+      .counter-section h2 {
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 40px;
+        color: #333;
+      }
+
+      .counter-card {
+        text-align: center;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .counter-card i {
+        font-size: 3em;
+        color: #eeaa56;
+        margin-bottom: 15px;
+      }
+
+      .counter {
+        font-size: 2.5em;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .counter-card h5 {
+        font-size: 1.2em;
+        color: #666;
+      }
+
+      .counter-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
     </style>
   </head>
   <body>
-    <!-- Free Consultation Section -->
-    <section class="consultation">
-      <h2>Get a Free Consultation</h2>
-      <p>
-        Discuss your project with our experts and see how we can help you
-        achieve your goals.
-      </p>
-      <!-- Button to trigger modal -->
-      <button
-        type="button"
-        class="btn"
-        data-toggle="modal"
-        data-target="#consultationModal"
-      >
-        Book Consultation
-      </button>
-    </section>
-
     <!-- Header Section -->
     <header class="header">
       <h1>Welcome to CodeCrush Hub</h1>
@@ -281,6 +430,24 @@
       </p>
     </header>
 
+    <!-- Consultation -->
+    <section class="consultation">
+      <h2>Get a Free Consultation</h2>
+      <p>
+        Discuss your project with our experts and see how we can help you
+        achieve your goals.
+      </p>
+      <!-- Button to trigger modal -->
+      <button
+        type="button"
+        class="btn"
+        data-toggle="modal"
+        data-target="#consultationModal"
+      >
+        Book Consultation
+      </button>
+    </section>
+
     <!-- Services Section -->
     <section class="services container">
       <h2>Our Services</h2>
@@ -289,7 +456,7 @@
           <div class="card service-card">
             <i class="fas fa-laptop-code"></i>
             <h5>Web Development</h5>
-            <p>Building responsive and scalable websites.</p>
+            <p>Building responsive, scalable websites and custom websites.</p>
           </div>
         </div>
         <div class="col-md-4 mb-4">
@@ -310,7 +477,9 @@
           <div class="card service-card">
             <i class="fas fa-chart-line"></i>
             <h5>Digital Marketing</h5>
-            <p>Enhancing your online presence and reach.</p>
+            <p>
+              Enhancing your online presence and reach with lead generation.
+            </p>
           </div>
         </div>
         <div class="col-md-4 mb-4">
@@ -320,6 +489,151 @@
             <p>
               Engaging your audience through effective social media strategies.
             </p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card service-card">
+            <i class="fas fa-share-alt"></i>
+            <h5>Data Analytics & Power BI</h5>
+            <p>
+              Transform raw data into actionable insights with our advanced
+              solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials container">
+      <h2 style="margin-bottom: 20px">What Our Clients Say</h2>
+      <p style="font-size: 25px; text-align: center; margin-bottom: 40px">
+        Few testimonials of our permanent clients!
+      </p>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card">
+            <div class="testimonial-card-inner">
+              <div class="testimonial-card-front">
+                <h5>Aman Pandey</h5>
+                <p>Founder, CodeWave Solution</p>
+              </div>
+              <div class="testimonial-card-back">
+                <p>
+                  "CodeCrush Hub delivered an exceptional product. Their
+                  attention to detail and commitment to excellence are
+                  unmatched. We have got great response in Marketing and
+                  designed a good website in budget. Highly recommended!"
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card">
+            <div class="testimonial-card-inner">
+              <div class="testimonial-card-front">
+                <h5>Raj Chandel</h5>
+                <p>CEO, GLobal Holidays</p>
+              </div>
+              <div class="testimonial-card-back">
+                <p>
+                  "Working with CodeCrush Hub was a great experience.They build
+                  my website in my budget with no compromise in design. Most
+                  beautiful thing is that they gave the end product on time.
+                  Highly Recommended!"
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card">
+            <div class="testimonial-card-inner">
+              <div class="testimonial-card-front">
+                <h5>Lalit Saini</h5>
+                <p>Founder, BihariJi Property</p>
+              </div>
+              <div class="testimonial-card-back">
+                <p>
+                  "CodeCrush Hub provided us with excellent service and
+                  solutions that helped us grow our online presence
+                  significantly in my property website building."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- why choose us section -->
+    <section class="why-choose-us container">
+      <h2>Why Choose Us?</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="why-card">
+            <i class="fas fa-thumbs-up"></i>
+            <h5>Quality Assurance</h5>
+            <p>
+              We ensure the highest quality in every project, adhering to best
+              practices and industry standards.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="why-card">
+            <i class="fas fa-clock"></i>
+            <h5>Timely Delivery</h5>
+            <p>
+              Our team is committed to delivering projects on time, without
+              compromising on quality.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="why-card">
+            <i class="fas fa-user-friends"></i>
+            <h5>Customer Focused</h5>
+            <p>
+              We prioritize our clients' needs and provide personalized
+              solutions to meet their unique requirements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Counter Section -->
+    <section class="counter-section container">
+      <h2>Our Achievements</h2>
+      <div class="row">
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="counter-card">
+            <i class="fas fa-briefcase"></i>
+            <div class="counter" data-count="150">10+</div>
+            <h5>Projects Completed</h5>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="counter-card">
+            <i class="fas fa-users"></i>
+            <div class="counter" data-count="200">6</div>
+            <h5>Happy Clients</h5>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="counter-card">
+            <i class="fas fa-calendar-alt"></i>
+            <div class="counter" data-count="5">5</div>
+            <h5>Years of Experience</h5>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="counter-card">
+            <i class="fas fa-coffee"></i>
+            <div class="counter" data-count="10">50+</div>
+            <h5>Cup of Coffee</h5>
           </div>
         </div>
       </div>
@@ -350,13 +664,14 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
+            <form id="contactForm">
               <div class="form-group">
                 <label for="name">Name</label>
                 <input
                   type="text"
                   class="form-control"
                   id="name"
+                  name="name"
                   placeholder="Your Name"
                   required
                 />
@@ -367,6 +682,7 @@
                   type="email"
                   class="form-control"
                   id="email"
+                  name="email"
                   placeholder="Your Email"
                   required
                 />
@@ -377,7 +693,8 @@
                   type="tel"
                   class="form-control"
                   id="phone"
-                  placeholder="Your Email"
+                  name="phone"
+                  placeholder="Your Whatsapp Number"
                   required
                 />
               </div>
@@ -387,7 +704,8 @@
                   type="text"
                   class="form-control"
                   id="city"
-                  placeholder="Your Email"
+                  name="city"
+                  placeholder="Your City"
                   required
                 />
               </div>
@@ -396,12 +714,14 @@
                 <textarea
                   class="form-control"
                   id="message"
+                  name="message"
                   rows="4"
                   placeholder="Your Message"
                   required
                 ></textarea>
               </div>
               <button type="submit" class="btn btn-primary">Send</button>
+              <div id="responseMessage" style="display:none;"></div>
             </form>
           </div>
         </div>
@@ -413,8 +733,8 @@
     <footer class="footer">
       <p>&copy; 2024 CodeCrush Hub. All Rights Reserved.</p>
       <div class="footer-details">
-        <p><i class="fas fa-phone"></i> +1 (234) 567-8901</p>
-        <p><i class="fas fa-envelope"></i> contact@codecrushhub.com</p>
+        <p><i class="fas fa-phone"></i> +91 8176060086</p>
+        <p><i class="fas fa-envelope"></i> codecrushhub@gmail.com</p>
       </div>
       <div class="footer-social">
         <a
